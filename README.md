@@ -1,5 +1,5 @@
 # 1 • worst-syntax-ever
-I thought that markdown was too easy, simple, and efficient to use, so I created **Worst Syntax Ever** to solve this problem. I knew that the world was in desperate need of a convoluted, confusing, and frustrating syntax system for styling font. One that would completely destroy the confidence even the most resilient programmers. One that would reduce any self-respecting typist to tears. I created what is essentially a simplified version of PHP.
+I thought that markdown was too easy, simple, and efficient to use, so I created **Worst Syntax Ever** to solve this problem. I knew that the world was in desperate need of a convoluted, confusing, complex, complicated, and frustrating syntax system for styling font. One that would completely destroy the confidence even the most resilient programmers. One that would reduce any self-respecting typist to tears. I created what is essentially a simplified version of PHP.
 
 # 2 • Modes
 There are two main modes in WSE, each with its own syntax and conventions. Symbols mode is based on regular ASCII keyboard symbols, while spaces mode uses only the space character.
