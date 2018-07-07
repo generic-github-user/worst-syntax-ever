@@ -21,18 +21,19 @@ Openers must be used before all expressions in WSE. A regular symbol opener cons
 Closers are used to end expressions in WSE. The regular closer expression (not to be confused with the closer regular expression) is similar to a reversed version of an opener, but with a few important differences.
 The closer is like a reversed opener, where both the characters and the type of characters are switched around:
 <div>
-}<,|'`*$`]~<br />
-The comma becomes a period:<br />
-}<.|'`*$`]~<br />
-The pipe becomes a forward slash:<br />
-}<./'`*$`]~<br />
-The backticks and apostrophes are switched around:<br />
-}<./`'*$']~<br />
-Another backtick is added to wrap the apostrophes in backticks:<br />
-}<./`'*$'`]~<br />
-And another tilde is added to the end:<br />
-}<./`'$*'`]~~<br />
+}<,|'`*$`]~<br /><br />
+The comma becomes a period:<br /><br />
+}<.|'`*$`]~<br /><br />
+The pipe becomes a forward slash:<br /><br />
+}<./'`*$`]~<br /><br />
+The backticks and apostrophes are switched around:<br /><br />
+}<./`'*$']~<br /><br />
+Another backtick is added to wrap the apostrophes in backticks:<br /><br />
+}<./`'*$'`]~<br /><br />
+And another tilde is added to the end:<br /><br />
+}<./`'$*'`]~~
 </div>
+
 ## 2.2 • z
 ### 2.2.1 • Openers
 ### 2.2.2 • Closers
