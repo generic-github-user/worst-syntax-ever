@@ -3,6 +3,9 @@ var page = document.body.innerHTML;
 
 const parseSymbols = function () {
 	console.log("Symbol syntax enabled.");
+
+	page = page.replace("-#(", "<span style='font-style: italic;'>");
+	page = page.replace(")-#", "<span style='font-style: italic;'>");
 }
 const parseSpaces = function () {
 	console.log("Space syntax enabled.");
