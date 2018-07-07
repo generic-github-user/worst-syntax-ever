@@ -12,32 +12,35 @@ const replace = function (string, substring_f, substring_r) {
 var page = document.body.innerText;
 
 const wse = {
-	"main": {
-		"opener": "~[`$*`'|,>{",
-		"closer": "}<./`'$*'`]~~"
-	},
 	"system": {
 		"symbols": "%%use-symbols%%%",
 		"spaces": "%%use-spaces%%%"
 	},
 	"symbols": {
+		"main": {
+			"opener": "~[`$*`'|,>{",
+			"closer": "}<./`'$*'`]~~"
+		},
 		"italic": {
 			"opening": "_-#(",
 			"closing": ")-_#"
 		}
+	},
+	"spaces": {
+
 	}
 }
 const wse_c = [
-	wse.main.opener,
-	wse.main.closer,
+	wse.symbols.main.opener,
+	wse.symbols.main.closer,
 	wse.system.symbols,
 	wse.system.spaces,
 	wse.symbols.italic.opening,
 	wse.symbols.italic.closing
 ];
 for (var i = 4; i < wse_c.length; i += 2) {
-	wse_c[i] = wse.main.opener + wse_c[i];
-	wse_c[i + 1] += wse.main.closer;
+	wse_c[i] = wse.symbols.main.opener + wse_c[i];
+	wse_c[i + 1] += wse.symbols.main.closer;
 }
 wse_c[2] = wse_c[0] + wse_c[2] + wse_c[1];
 wse_c[3] = wse_c[0] + wse_c[3] + wse_c[1];
