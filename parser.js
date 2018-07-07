@@ -1,5 +1,14 @@
 console.log("Worst Syntax Ever loaded.");
 
+var substringIndex;
+const replace = function (string, substring_f, substring_r) {
+	do {
+		substringIndex = string.indexOf(substring_f);
+		string = string.replace(substring_f, substring_r);
+	} while (substringIndex !== -1)
+	return string;
+}
+
 var page = document.body.innerHTML;
 
 const wse = {
@@ -35,10 +44,10 @@ wse_c[3] = wse_c[0] + wse_c[3] + wse_c[1];
 
 const parseSymbols = function () {
 	console.log("Symbol syntax enabled.");
-	page = page.replace(new RegExp(wse_c[2], "g"), "");
+	page = replace(page, wse_c[2], "");
 
-	page = page.replace(new RegExp(wse_c[4], "g"), "<span style='font-style: italic;'>");
-	page = page.replace(new RegExp(wse_c[5], "g"), "</span>");
+	page = replace(page, wse_c[4], "<span style='font-style: italic;'>");
+	page = replace(page, wse_c[5], "</span>");
 }
 const parseSpaces = function () {
 	console.log("Space syntax enabled.");
