@@ -9,8 +9,10 @@ const replace = function (string, substring_f, substring_r) {
 	return string;
 }
 
+// Store page text in a variable
 var page = document.body.innerText;
 
+// All WSE syntax is stored here
 const wse = {
 	"syntax": {
 		"symbols": "%%use-symbols%%%",
@@ -32,16 +34,21 @@ const wse = {
 		"underlined": {
 			"opening": "_-$(",
 			"closing": ")-_$"
+			// Italic styling
 		}
 	},
+	//
 	"z": {
+		//
 		"main": {
+			// The syntax for z mode is stored as the number of "z"s
 			"opener": 3,
 			"closer": 5
 		},
 		"italic": {
 			"opening": 6,
 			"closing": 4
+			// Italic styling
 		}
 	}
 }
