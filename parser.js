@@ -24,6 +24,14 @@ const wse = {
 		"italic": {
 			"opening": "_-#(",
 			"closing": ")-_#"
+		},
+		"bold": {
+			"opening": "_-@(",
+			"closing": ")-_@"
+		},
+		"underlined": {
+			"opening": "_-$(",
+			"closing": ")-_$"
 		}
 	},
 	"z": {
@@ -44,7 +52,11 @@ const parseSymbols = function () {
 		wse.symbols.main.opener,
 		wse.symbols.main.closer,
 		wse.symbols.italic.opening,
-		wse.symbols.italic.closing
+		wse.symbols.italic.closing,
+		wse.symbols.bold.opening,
+		wse.symbols.bold.closing,
+		wse.symbols.underlined.opening,
+		wse.symbols.underlined.closing
 	];
 	for (var i = 2; i < sym_c.length; i += 2) {
 		sym_c[i] = sym_c[0] + sym_c[i];
@@ -55,6 +67,12 @@ const parseSymbols = function () {
 
 	page = replace(page, sym_c[2], "<span style='font-style: italic;'>");
 	page = replace(page, sym_c[3], "</span>");
+
+	page = replace(page, sym_c[4], "<span style='font-weight: bold;'>");
+	page = replace(page, sym_c[5], "</span>");
+
+	page = replace(page, sym_c[6], "<span style='text-decoration: underline;'>");
+	page = replace(page, sym_c[7], "</span>");
 }
 const parseZ = function () {
 	console.log("z syntax enabled.");
