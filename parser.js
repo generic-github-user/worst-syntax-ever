@@ -1,21 +1,21 @@
 console.log("Worst Syntax Ever loaded.");
 
-function escapeHTML(unsafe) {
-    return unsafe
-         .replace(/&/g, "&amp;")
-         .replace(/</g, "&lt;")
-         .replace(/>/g, "&gt;")
-         .replace(/"/g, "&quot;")
-         .replace(/'/g, "&#039;");
- }
+var substringIndex;
+function replace(string, substring_f, substring_r) {
+	do {
+		substringIndex = string.indexOf(substring_f);
+		stringLength = string.length;
+		string = string
+			.slice(0, substringIndex)
+			+
+			substring_r
+			+
+			string.slice(substringIndex + substring_r.length - 1, stringLength - 1)
+	} while (substringIndex !== -1)
+	return string;
+}
 
 var page = document.body.innerHTML;
-console.log(page);
-// Redundant
-page = escapeHTML(page);
-console.log(page);
-page = escape(page);
-console.log(page);
 
 const wse = {
 	"main": {
