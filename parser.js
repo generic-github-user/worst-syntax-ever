@@ -14,7 +14,7 @@ var page = document.body.innerText;
 const wse = {
 	"syntax": {
 		"symbols": "%%use-symbols%%%",
-		"spaces": "%%use-spaces%%%"
+		"z": "%%use-z%%%"
 	},
 	"symbols": {
 		"main": {
@@ -26,7 +26,7 @@ const wse = {
 			"closing": ")-_#"
 		}
 	},
-	"spaces": {
+	"z": {
 		"main": {
 			"opener": 3,
 			"closer": 5
@@ -56,41 +56,41 @@ const parseSymbols = function () {
 	page = replace(page, sym_c[2], "<span style='font-style: italic;'>");
 	page = replace(page, sym_c[3], "</span>");
 }
-const parseSpaces = function () {
-	console.log("Space syntax enabled.");
-	const spa_c = [
-		wse.spaces.main.opener,
-		wse.spaces.main.closer,
-		wse.spaces.italic.opening,
-		wse.spaces.italic.closing
+const parseZ = function () {
+	console.log("z syntax enabled.");
+	const z_c = [
+		wse.z.main.opener,
+		wse.z.main.closer,
+		wse.z.italic.opening,
+		wse.z.italic.closing
 	];
 	var symbol;
-	for (var i = 0; i < spa_c.length; i ++) {
+	for (var i = 0; i < z_c.length; i ++) {
 		symbol = "";
-		for (var j = 0; j < spa_c[i]; j ++) {
-			symbol += " ";
+		for (var j = 0; j < z_c[i]; j ++) {
+			symbol += "z";
 		}
-		spa_c[i] = symbol;
+		z_c[i] = symbol;
 	}
-	for (var i = 2; i < spa_c.length; i += 2) {
-		spa_c[i] = spa_c[0] + spa_c[i];
-		spa_c[i + 1] += spa_c[1];
+	for (var i = 2; i < z_c.length; i += 2) {
+		z_c[i] = z_c[0] + z_c[i];
+		z_c[i + 1] += z_c[1];
 	}
 
-	page = replace(page, spa_c[2], "<span style='font-style: italic;'>");
-	page = replace(page, spa_c[3], "</span>");
-	console.log(spa_c[2])
+	page = replace(page, z_c[2], "<span style='font-style: italic;'>");
+	page = replace(page, z_c[3], "</span>");
+	console.log(z_c)
 
-	page = replace(page, wse.syntax.spaces, "");
+	page = replace(page, wse.syntax.z, "");
 }
 
 const u_sym = page.indexOf(wse.syntax.symbols);
-const u_spa = page.indexOf(wse.syntax.spaces);
+const u_z = page.indexOf(wse.syntax.z);
 if (u_sym !== -1) {
 	parseSymbols();
 }
-else if (u_spa !== -1) {
-	parseSpaces();
+else if (u_z !== -1) {
+	parseZ();
 }
 else {
 	parseSymbols();
