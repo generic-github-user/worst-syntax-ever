@@ -1,3 +1,11 @@
-# worst-syntax-ever
+# 1 • worst-syntax-ever
+I thought that markdown was too easy, simple, and efficient to use, so I created Worst Syntax Ever to solve this problem. I knew that the world was in desperate need of a convoluted, confusing, and frustrating syntax system for styling font. One that would completely destroy the confidence even the most resilient programmers. One that would reduce any self-respecting typist to tears. I created what is essentially a simplified version of PHP.
 
-I thought that markdown was too easy, simple, and efficient to use, so I created Worst Syntax Ever to solve this problem. I knew that the world was in desperate need of a convoluted, confusing, and frustrating syntax system for styling font. One that would completely destroy the confidence even the most resilient programmers. One that would require any user of the system to tape a copy of the full documentation on every wall of their office.
+
+# 2 • Modes
+
+
+## 2.1 • Symbols
+
+
+## 2.2 • Spaces
