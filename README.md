@@ -11,8 +11,20 @@ This is the default system used for parsing worst-syntax-ever. Symbols mode cons
 
 ### 2.1.1 • Openers
 Openers must be used before all expressions in WSE. A regular opener consists of a tilde, followed by the opening bracket, a backtick, a dollar sign, an asterisk, another backtick, an apostrophe, a pipe, and an opening brace.
-**~[`$*`'|{**
+**~[`$*`'|,>{**
 
 ### 2.1.2 • Closers
-
+Closers are used to end expressions in WSE. The regular closer expression (not to be confused with the closer regular expression) is similar to a reversed version of an opener, but with a few important differences.
+The closer is like a reversed opener, where both the characters and the type of characters are switched around:
+**}<,|'`*$`]~**
+The comma becomes a period:
+**}<.|'`*$`]~**
+The pipe becomes a forward slash:
+**}<./'`*$`]~**
+The backticks and apostrophes are switched around:
+**}<./`'*$']~**
+Another backtick is added to wrap the apostrophes in backticks:
+**}<./`'*$'`]~**
+And another tilde is added:
+**}<./`'$*'`]~~**
 ## 2.2 • Spaces

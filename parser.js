@@ -14,7 +14,7 @@ var page = document.body.innerText;
 const wse = {
 	"main": {
 		"opener": "~[`$*`'|,>{",
-		"closer": "}<.|`'$*']~~"
+		"closer": "}<./`'$*'`]~~"
 	},
 	"system": {
 		"symbols": "%%use-symbols%%%",
