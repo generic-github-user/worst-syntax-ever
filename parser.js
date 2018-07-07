@@ -51,7 +51,7 @@ const parseSymbols = function () {
 }
 const parseSpaces = function () {
 	console.log("Space syntax enabled.");
-	page = page.replace(new RegExp(wse_c[3], "g"), "");
+	page = replace(page, wse_c[3], "");
 }
 
 const u_sym = page.indexOf(wse_c[2]);

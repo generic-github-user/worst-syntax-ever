@@ -28,3 +28,7 @@ Another backtick is added to wrap the apostrophes in backticks:
 And another tilde is added:
 **}<./`'$*'`]~~**
 ## 2.2 • Spaces
+
+
+<> escapes
+encodeURI depreciated
