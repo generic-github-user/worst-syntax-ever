@@ -12,7 +12,7 @@ const replace = function (string, substring_f, substring_r) {
 var page = document.body.innerText;
 
 const wse = {
-	"system": {
+	"syntax": {
 		"symbols": "%%use-symbols%%%",
 		"spaces": "%%use-spaces%%%"
 	},
@@ -27,38 +27,49 @@ const wse = {
 		}
 	},
 	"spaces": {
-
+		"main": {
+			"opener": 3,
+			"closer": 5
+		},
+		"italic": {
+			"opening": 6,
+			"closing": 4
+		}
 	}
 }
-const wse_c = [
-	wse.symbols.main.opener,
-	wse.symbols.main.closer,
-	wse.system.symbols,
-	wse.system.spaces,
-	wse.symbols.italic.opening,
-	wse.symbols.italic.closing
-];
-for (var i = 4; i < wse_c.length; i += 2) {
-	wse_c[i] = wse.symbols.main.opener + wse_c[i];
-	wse_c[i + 1] += wse.symbols.main.closer;
-}
-wse_c[2] = wse_c[0] + wse_c[2] + wse_c[1];
-wse_c[3] = wse_c[0] + wse_c[3] + wse_c[1];
 
 const parseSymbols = function () {
 	console.log("Symbol syntax enabled.");
-	page = replace(page, wse_c[2], "");
+	const sym_c = [
+		wse.symbols.main.opener,
+		wse.symbols.main.closer,
+		wse.symbols.italic.opening,
+		wse.symbols.italic.closing
+	];
+	for (var i = 2; i < sym_c.length; i += 2) {
+		sym_c[i] = sym_c[0] + sym_c[i];
+		sym_c[i + 1] += sym_c[1];
+	}
 
-	page = replace(page, wse_c[4], "<span style='font-style: italic;'>");
-	page = replace(page, wse_c[5], "</span>");
+	page = replace(page, wse.syntax.symbols, "");
+
+	page = replace(page, sym_c[2], "<span style='font-style: italic;'>");
+	page = replace(page, sym_c[3], "</span>");
 }
 const parseSpaces = function () {
 	console.log("Space syntax enabled.");
-	page = replace(page, wse_c[3], "");
+	const spa_c = [
+		wse.spaces.main.opener,
+		wse.spaces.main.closer,
+		wse.spaces.italic.opening,
+		wse.spaces.italic.closing
+	];
+
+	page = replace(page, wse.syntax.spaces, "");
 }
 
-const u_sym = page.indexOf(wse_c[2]);
-const u_spa = page.indexOf(wse_c[3]);
+const u_sym = page.indexOf(wse.syntax.symbols);
+const u_spa = page.indexOf(wse.syntax.spaces);
 if (u_sym !== -1) {
 	parseSymbols();
 }
@@ -69,5 +80,4 @@ else {
 	parseSymbols();
 }
 
-console.log(page);
 document.body.innerHTML = page;
