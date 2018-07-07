@@ -9,7 +9,7 @@ const replace = function (string, substring_f, substring_r) {
 	return string;
 }
 
-var page = document.body.innerHTML;
+var page = document.body.innerText;
 
 const wse = {
 	"main": {
