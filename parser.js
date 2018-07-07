@@ -1,10 +1,26 @@
 console.log("Worst Syntax Ever loaded.");
+
+function escapeHTML(unsafe) {
+    return unsafe
+         .replace(/&/g, "&amp;")
+         .replace(/</g, "&lt;")
+         .replace(/>/g, "&gt;")
+         .replace(/"/g, "&quot;")
+         .replace(/'/g, "&#039;");
+ }
+
 var page = document.body.innerHTML;
+console.log(page);
+// Redundant
+page = escapeHTML(page);
+console.log(page);
+page = escape(page);
+console.log(page);
 
 const wse = {
 	"main": {
-		"opener": "~[`$*`'|{",
-		"closer": "}/`'$*']~~"
+		"opener": "~[`$*`'|,>{",
+		"closer": "}<.|`'$*']~~"
 	},
 	"system": {
 		"symbols": "%%use-symbols%%%",
@@ -31,15 +47,21 @@ for (var i = 4; i < wse_c.length; i += 2) {
 }
 wse_c[2] = wse_c[0] + wse_c[2] + wse_c[1];
 wse_c[3] = wse_c[0] + wse_c[3] + wse_c[1];
+for (var i = 0; i < wse_c.length; i ++) {
+	wse_c[i] = escapeHTML(wse_c[i]);
+	wse_c[i] = escape(wse_c[i]);
+}
 
 const parseSymbols = function () {
 	console.log("Symbol syntax enabled.");
+	page = page.replace(new RegExp(wse_c[2], "g"), "");
 
-	page = page.replace(wse_c[4], "<span style='font-style: italic;'>");
-	page = page.replace(wse_c[5], "</span>");
+	page = page.replace(new RegExp(wse_c[4], "g"), "<span style='font-style: italic;'>");
+	page = page.replace(new RegExp(wse_c[5], "g"), "</span>");
 }
 const parseSpaces = function () {
 	console.log("Space syntax enabled.");
+	page = page.replace(new RegExp(wse_c[3], "g"), "");
 }
 
 const u_sym = page.indexOf(wse_c[2]);
@@ -54,7 +76,6 @@ else {
 	parseSymbols();
 }
 
-page = page.replace(new RegExp(escape(wse_c[2]), "g"), "");
-page = page.replace(new RegExp(escape(wse_c[3]), "g"), "");
-
-document.body.innerHTML = page;
+console.log(page);
+console.log(unescape(page));
+document.body.innerHTML = unescape(page);
