@@ -21,17 +21,19 @@ const wse = {
 			"opener": "~[`$*`'|,>{",
 			"closer": "}<./`'$*'`]~~"
 		},
-		"italic": {
-			"opening": "_-#(",
-			"closing": ")-_#"
-		},
-		"bold": {
-			"opening": "_-@(",
-			"closing": ")-_@"
-		},
-		"underlined": {
-			"opening": "_-$(",
-			"closing": ")-_$"
+		"styles": {
+			"italic": {
+				"opening": "_-#(",
+				"closing": ")-_#"
+			},
+			"bold": {
+				"opening": "_-@(",
+				"closing": ")-_@"
+			},
+			"underlined": {
+				"opening": "_-$(",
+				"closing": ")-_$"
+			}
 		}
 	},
 	"z": {
@@ -39,9 +41,11 @@ const wse = {
 			"opener": 3,
 			"closer": 5
 		},
-		"italic": {
-			"opening": 6,
-			"closing": 4
+		"styles": {
+			"italic": {
+				"opening": 6,
+				"closing": 4
+			}
 		}
 	}
 }
@@ -51,12 +55,12 @@ const parseSymbols = function () {
 	const sym_c = [
 		wse.symbols.main.opener,
 		wse.symbols.main.closer,
-		wse.symbols.italic.opening,
-		wse.symbols.italic.closing,
-		wse.symbols.bold.opening,
-		wse.symbols.bold.closing,
-		wse.symbols.underlined.opening,
-		wse.symbols.underlined.closing
+		wse.symbols.styles.italic.opening,
+		wse.symbols.styles.italic.closing,
+		wse.symbols.styles.bold.opening,
+		wse.symbols.styles.bold.closing,
+		wse.symbols.styles.underlined.opening,
+		wse.symbols.styles.underlined.closing
 	];
 	for (var i = 2; i < sym_c.length; i += 2) {
 		sym_c[i] = sym_c[0] + sym_c[i];
@@ -79,8 +83,8 @@ const parseZ = function () {
 	const z_c = [
 		wse.z.main.opener,
 		wse.z.main.closer,
-		wse.z.italic.opening,
-		wse.z.italic.closing
+		wse.z.styles.italic.opening,
+		wse.z.styles.italic.closing
 	];
 	var symbol;
 	for (var i = 0; i < z_c.length; i ++) {
