@@ -1,20 +1,5 @@
 console.log("Worst Syntax Ever loaded.");
 
-var substringIndex;
-function replace(string, substring_f, substring_r) {
-	do {
-		substringIndex = string.indexOf(substring_f);
-		stringLength = string.length;
-		string = string
-			.slice(0, substringIndex)
-			+
-			substring_r
-			+
-			string.slice(substringIndex + substring_r.length - 1, stringLength - 1)
-	} while (substringIndex !== -1)
-	return string;
-}
-
 var page = document.body.innerHTML;
 
 const wse = {
@@ -47,10 +32,6 @@ for (var i = 4; i < wse_c.length; i += 2) {
 }
 wse_c[2] = wse_c[0] + wse_c[2] + wse_c[1];
 wse_c[3] = wse_c[0] + wse_c[3] + wse_c[1];
-for (var i = 0; i < wse_c.length; i ++) {
-	wse_c[i] = escapeHTML(wse_c[i]);
-	wse_c[i] = escape(wse_c[i]);
-}
 
 const parseSymbols = function () {
 	console.log("Symbol syntax enabled.");
@@ -77,5 +58,4 @@ else {
 }
 
 console.log(page);
-console.log(unescape(page));
-document.body.innerHTML = unescape(page);
+document.body.innerHTML = page;
