@@ -22,19 +22,48 @@ const wse = {
 			"closer": "}<./`'$*'`]~~"
 		},
 		"styles": {
-			"italic": {
-				"opening": "_-#(",
-				"closing": ")-_#"
-			},
-			"bold": {
-				"opening": "_-@(",
-				"closing": ")-_@"
-			},
-			"underlined": {
-				"opening": "_-$(",
-				"closing": ")-_$"
-			},
-			"line_break": "__*-?"
+			"divided": [
+				{
+					"name": "italic",
+					"opening": {
+						"syntax": "_-#(",
+						"result": "<span style='font-style: italic;'>"
+					},
+					"closing": {
+						"syntax": ")-_#",
+						"result": "</span>"
+					}
+				},
+				{
+					"name": "bold",
+					"opening": {
+						"syntax": "_-@(",
+						"result": "<span style='font-weight: bold;'>"
+					},
+					"closing": {
+						"syntax": ")-_@",
+						"result": "</span>"
+					}
+				},
+				{
+					"name": "underlined",
+					"opening": {
+						"syntax": "_-$(",
+						"result": "<span style='text-decoration: underline;'>"
+					},
+					"closing": {
+						"syntax": ")-_$",
+						"result": "</span>"
+					}
+				}
+			],
+			"full": [
+				{
+					"name": "line_break",
+					"syntax": "__*-?",
+					"result": "<br />"
+				}
+			]
 		}
 	},
 	"z": {
@@ -53,35 +82,25 @@ const wse = {
 
 const parseSymbols = function () {
 	console.log("Symbol syntax enabled.");
-	const sym_c = [
-		wse.symbols.main.opener,
-		wse.symbols.main.closer,
-		wse.symbols.styles.italic.opening,
-		wse.symbols.styles.italic.closing,
-		wse.symbols.styles.bold.opening,
-		wse.symbols.styles.bold.closing,
-		wse.symbols.styles.underlined.opening,
-		wse.symbols.styles.underlined.closing,
-		wse.symbols.styles.line_break
-	];
-	for (var i = 2; i < sym_c.length - 1; i += 2) {
-		sym_c[i] = sym_c[0] + sym_c[i];
-		sym_c[i + 1] += sym_c[1];
-	}
 
 	page = replace(page, wse.syntax.symbols, "");
 
-	page = replace(page, sym_c[2], "<span style='font-style: italic;'>");
-	page = replace(page, sym_c[3], "</span>");
+	const main = wse.symbols.main;
+	wse.symbols.styles.divided.forEach(
+		(element) => {
+			element.opening.syntax = main.opener + element.opening.syntax;
+			element.closing.syntax += main.closer;
 
-	page = replace(page, sym_c[4], "<span style='font-weight: bold;'>");
-	page = replace(page, sym_c[5], "</span>");
-
-	page = replace(page, sym_c[6], "<span style='text-decoration: underline;'>");
-	page = replace(page, sym_c[7], "</span>");
-
-	sym_c[8] = sym_c[0] + sym_c[8] + sym_c[1];
-	page = replace(page, sym_c[8], "<br />");
+			page = replace(page, element.opening.syntax, element.opening.result);
+			page = replace(page, element.closing.syntax, element.closing.result);
+		}
+	);
+	wse.symbols.styles.full.forEach(
+		(element) => {
+			element.syntax = main.opener + element.syntax + main.closer;
+			page = replace(page, element.syntax, element.result);
+		}
+	);
 }
 const parseZ = function () {
 	console.log("z syntax enabled.");
