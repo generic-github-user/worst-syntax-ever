@@ -66,6 +66,28 @@ const wse = {
 					}
 				},
 				{
+					"name": "superscript",
+					"opening": {
+						"syntax": "_-#^^^#|",
+						"result": "<sup>"
+					},
+					"closing": {
+						"syntax": "|-_#^^^#",
+						"result": "</sup>"
+					}
+				},
+				{
+					"name": "superscript",
+					"opening": {
+						"syntax": "_-#___#|",
+						"result": "<sub>"
+					},
+					"closing": {
+						"syntax": "|-_#___#",
+						"result": "</sub>"
+					}
+				},
+				{
 					"name": "header_1",
 					"opening": {
 						"syntax": "=1/^[",
