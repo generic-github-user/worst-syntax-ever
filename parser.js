@@ -33,7 +33,8 @@ const wse = {
 			"underlined": {
 				"opening": "_-$(",
 				"closing": ")-_$"
-			}
+			},
+			"line_break": "__*-?"
 		}
 	},
 	"z": {
@@ -60,9 +61,10 @@ const parseSymbols = function () {
 		wse.symbols.styles.bold.opening,
 		wse.symbols.styles.bold.closing,
 		wse.symbols.styles.underlined.opening,
-		wse.symbols.styles.underlined.closing
+		wse.symbols.styles.underlined.closing,
+		wse.symbols.styles.line_break
 	];
-	for (var i = 2; i < sym_c.length; i += 2) {
+	for (var i = 2; i < sym_c.length - 1; i += 2) {
 		sym_c[i] = sym_c[0] + sym_c[i];
 		sym_c[i + 1] += sym_c[1];
 	}
@@ -77,6 +79,9 @@ const parseSymbols = function () {
 
 	page = replace(page, sym_c[6], "<span style='text-decoration: underline;'>");
 	page = replace(page, sym_c[7], "</span>");
+
+	sym_c[8] = sym_c[0] + sym_c[8] + sym_c[1];
+	page = replace(page, sym_c[8], "<br />");
 }
 const parseZ = function () {
 	console.log("z syntax enabled.");
