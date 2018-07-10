@@ -33,13 +33,35 @@ const wse = {
 					}
 				},
 				{
-					"name": "underlined",
+					"name": "underline",
 					"opening": {
 						"syntax": "_-$(",
 						"result": "<span style='text-decoration: underline;'>"
 					},
 					"closing": {
 						"syntax": ")-_$",
+						"result": "</span>"
+					}
+				},
+				{
+					"name": "overline",
+					"opening": {
+						"syntax": "_-$$(",
+						"result": "<span style='text-decoration: overline;'>"
+					},
+					"closing": {
+						"syntax": ")-_$$",
+						"result": "</span>"
+					}
+				},
+				{
+					"name": "strikethrough",
+					"opening": {
+						"syntax": "_-$--$(",
+						"result": "<span style='text-decoration: line-through;'>"
+					},
+					"closing": {
+						"syntax": ")-_$--$",
 						"result": "</span>"
 					}
 				},
